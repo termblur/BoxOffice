@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let vm = ViewModel()
+    private let vm = ViewModel()
     lazy var vc = ViewController(viewModel: vm)
 
 
@@ -35,6 +35,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        if !NetworkMonitor.shared.isConnected {
+            vc.blockView.isHidden = false
+            let alert = UIAlertController(title:"네트워크 접속 불가",
+                                          message: "네트워크 연결 상태를 확인해주세요.",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .cancel))
+
+            vc.present(alert, animated: true)
+        } else {
+            vc.blockView.isHidden = true
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
