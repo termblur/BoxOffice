@@ -8,5 +8,5 @@
 import RxSwift
 
 protocol BoxOfficeRepository {
-    
+    func requestWeeklyBoxOfficeList(targetDate: Date, weekType: WeekType) -> Single<MovieInfoResponse>
 }

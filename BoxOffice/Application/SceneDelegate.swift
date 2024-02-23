@@ -10,8 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private let vm = ViewModel()
-    lazy var vc = ViewController(viewModel: vm)
+    private let vm = MainViewModel()
+    lazy var vc = MainViewController(viewModel: vm)
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
