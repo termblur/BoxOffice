@@ -72,6 +72,15 @@ final class MainViewController: UIViewController {
         return table
     }()
     
+    private let emptyTableDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.text = "선택한 날짜에는 아직 데이터가 없어요🥲"
+        label.isHidden = true
+        return label
+    }()
+    
+    
     let blockView: UIView = {
         let view = UIView()
         view.isHidden = true
@@ -128,6 +137,7 @@ final class MainViewController: UIViewController {
         view.addSubview(datePicker)
         view.addSubview(searchButton)
         view.addSubview(tableView)
+        tableView.addSubview(emptyTableDescriptionLabel)
         view.addSubview(blockView)
         blockView.addSubview(blockImageView)
     }
@@ -163,6 +173,10 @@ final class MainViewController: UIViewController {
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
+        emptyTableDescriptionLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
         blockView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
@@ -176,8 +190,14 @@ final class MainViewController: UIViewController {
     private func bind(output: MainViewModel.Output) {
         output.boxOfficeList
             .drive(onNext: { [weak self] in
-                self?.boxOfficeList = $0
-                self?.applySnapshot(box: $0)
+                guard let boxOfficeList = $0 else { return }
+                if boxOfficeList.isEmpty {
+                    self?.emptyTableDescriptionLabel.isHidden = false
+                } else {
+                    self?.emptyTableDescriptionLabel.isHidden = true
+                }
+                self?.boxOfficeList = boxOfficeList
+                self?.applySnapshot(box: boxOfficeList)
             })
             .disposed(by: bag)
     }
