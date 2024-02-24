@@ -8,7 +8,7 @@
 struct MovieInfoResponse {
     let movieName: String
     let movieEnglishName: String
-    let showTime: String
-    let producedYear: String
-    let openDate: String
+    let showTime: String // 상영시간
+    let producedYear: String // 제작연도
+    let openDate: String // 개봉일
 }

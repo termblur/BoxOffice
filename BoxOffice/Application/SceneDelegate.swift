@@ -10,8 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private let vm = MainViewModel()
-    lazy var vc = MainViewController(viewModel: vm)
+    private let vm = BoxOfficeViewModel(boxOfficeRepository: DefaultBoxOfficeRepository())
+    lazy var vc = BoxOfficeViewController(viewModel: vm)
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

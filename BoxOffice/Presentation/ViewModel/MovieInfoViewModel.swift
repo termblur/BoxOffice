@@ -1,8 +1,8 @@
 //
-//  MainViewModel.swift
+//  MovieInfoViewModel.swift
 //  BoxOffice
 //
-//  Created by STJANG on 2/23/24.
+//  Created by termblur on 2/24/24.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-final class MainViewModel: ViewModel {
+final class MovieInfoViewModel: ViewModel {
     struct Input {
         let searchButtonTapped: Driver<Void>
         let selectedDate: Observable<Date>
@@ -25,7 +25,11 @@ final class MainViewModel: ViewModel {
     }
     
     private let bag = DisposeBag()
-    private let BoxOfficeRepository: BoxOfficeRepository = DefaultBoxOfficeRepository()
+    private let boxOfficeRepository: BoxOfficeRepository
+    
+    init(boxOfficeRepository: BoxOfficeRepository) {
+        self.boxOfficeRepository = boxOfficeRepository
+    }
     
     func transform(input: Input) -> Output {
         let boxOfficeList = PublishSubject<[WeeklyBoxOffice]>()
@@ -51,7 +55,7 @@ final class MainViewModel: ViewModel {
             .asObservable()
             .withLatestFrom(Observable.combineLatest(selectedDate, weekType))
             .compactMap { [weak self] in
-                self?.BoxOfficeRepository.requestWeeklyBoxOfficeList(targetDate: $0, weekType: $1)
+                self?.boxOfficeRepository.requestWeeklyBoxOfficeList(targetDate: $0, weekType: $1)
             }
             .flatMap { $0 }
             .subscribe(onNext: { result in
@@ -62,7 +66,7 @@ final class MainViewModel: ViewModel {
             .disposed(by: bag)
         
         return Output(
-            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: []), 
+            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: []),
             selectedDate: selectedDate.asSignal(onErrorJustReturn: .now),
             boxOfficeType: boxOfficeType.asDriver(onErrorJustReturn: "-"),
             dateRange: range.asDriver(onErrorJustReturn: "-")

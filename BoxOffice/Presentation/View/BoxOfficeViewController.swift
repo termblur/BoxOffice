@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  BoxOfficeViewController.swift
 //  BoxOffice
 //
 //  Created by STJANG on 2/23/24.
@@ -11,10 +11,10 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-final class MainViewController: UIViewController {
+final class BoxOfficeViewController: UIViewController {
     // MARK: - Properties
 
-    let viewModel: MainViewModel
+    let viewModel: BoxOfficeViewModel
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -130,7 +130,7 @@ final class MainViewController: UIViewController {
     
     private var tableDataSource: UITableViewDiffableDataSource<TableViewSectionKind, WeeklyBoxOffice>?
     
-    private lazy var input = MainViewModel.Input(
+    private lazy var input = BoxOfficeViewModel.Input(
         searchButtonTapped: searchButton.rx.tap.asDriver(),
         selectedDate: datePicker.rx.date.asObservable(),
         weekType: segmentedControl.rx.selectedSegmentIndex.asObservable()
@@ -156,7 +156,7 @@ final class MainViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(viewModel: MainViewModel) {
+    init(viewModel: BoxOfficeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -246,7 +246,7 @@ final class MainViewController: UIViewController {
         }
     }
     
-    private func bind(output: MainViewModel.Output) {
+    private func bind(output: BoxOfficeViewModel.Output) {
         output.boxOfficeList
             .drive(onNext: { [weak self] in
                 self?.emptyTableDescriptionLabel.isHidden = $0.isEmpty ? false : true

@@ -1,5 +1,5 @@
 //
-//  MainViewController+TableView.swift
+//  BoxOfficeViewController+TableView.swift
 //  BoxOffice
 //
 //  Created by termblur on 2/24/24.
@@ -8,11 +8,13 @@
 import UIKit
 
 
-extension MainViewController: UITableViewDelegate {
-    
+extension BoxOfficeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(boxOfficeList[indexPath.row].movieCD)
+    }
 }
 
-extension MainViewController: UITableViewDataSource {
+extension BoxOfficeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.boxOfficeList.count
     }
