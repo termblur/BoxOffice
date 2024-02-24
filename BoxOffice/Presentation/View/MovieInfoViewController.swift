@@ -150,7 +150,6 @@ final class MovieInfoViewController: UIViewController {
         
         movieNameLabel.snp.makeConstraints {
             $0.bottom.equalTo(movieEnglishNameDescriptionLabel.snp.top).offset(-40)
-            $0.centerX.equalToSuperview()
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
@@ -161,7 +160,6 @@ final class MovieInfoViewController: UIViewController {
         
         movieEnglishNameLabel.snp.makeConstraints {
             $0.bottom.equalTo(runningTimeDescriptionLabel.snp.top).offset(-40)
-            $0.centerX.equalToSuperview()
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
@@ -182,7 +180,6 @@ final class MovieInfoViewController: UIViewController {
         
         productionYearLabel.snp.makeConstraints {
             $0.top.equalTo(productionYearDescriptionLabel.snp.bottom).offset(10)
-            $0.centerX.equalToSuperview()
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
@@ -193,7 +190,6 @@ final class MovieInfoViewController: UIViewController {
         
         releaseDateLabel.snp.makeConstraints {
             $0.top.equalTo(releaseDateDescriptionLabel.snp.bottom).offset(10)
-            $0.centerX.equalToSuperview()
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
     }
