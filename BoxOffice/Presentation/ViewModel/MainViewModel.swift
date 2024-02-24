@@ -12,7 +12,7 @@ import RxCocoa
 
 final class MainViewModel: ViewModel {
     struct Input {
-        let searchButtonTapped: Observable<Void>
+        let searchButtonTapped: Driver<Void>
         let selectedDate: Observable<Date>
         let weekType: Observable<Int>
     }
@@ -20,6 +20,8 @@ final class MainViewModel: ViewModel {
     struct Output {
         let boxOfficeList: Driver<[WeeklyBoxOffice]>
         let selectedDate: Signal<Date>
+        let boxOfficeType: Driver<String>
+        let dateRange: Driver<String>
     }
     
     private let bag = DisposeBag()
@@ -29,6 +31,8 @@ final class MainViewModel: ViewModel {
         let boxOfficeList = PublishSubject<[WeeklyBoxOffice]>()
         let selectedDate = BehaviorSubject<Date>(value: .now)
         let weekType = BehaviorSubject<Int>(value: 0)
+        let boxOfficeType = BehaviorSubject<String>(value: "-")
+        let range = BehaviorSubject<String>(value: "-")
         
         input.selectedDate
             .subscribe(onNext: {
@@ -43,6 +47,8 @@ final class MainViewModel: ViewModel {
             .disposed(by: bag)
         
         input.searchButtonTapped
+            .throttle(.milliseconds(500))
+            .asObservable()
             .withLatestFrom(Observable.combineLatest(selectedDate, weekType))
             .compactMap { [weak self] in
                 self?.BoxOfficeRepository.requestWeeklyBoxOfficeList(targetDate: $0, weekType: $1)
@@ -50,12 +56,16 @@ final class MainViewModel: ViewModel {
             .flatMap { $0 }
             .subscribe(onNext: { result in
                 boxOfficeList.onNext(result.weeklyBoxOfficeList)
+                boxOfficeType.onNext(result.boxofficeType)
+                range.onNext(result.showRange)
             })
             .disposed(by: bag)
         
         return Output(
             boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: []), 
-            selectedDate: selectedDate.asSignal(onErrorJustReturn: .now)
+            selectedDate: selectedDate.asSignal(onErrorJustReturn: .now),
+            boxOfficeType: boxOfficeType.asDriver(onErrorJustReturn: "-"),
+            dateRange: range.asDriver(onErrorJustReturn: "-")
         )
     }
 }

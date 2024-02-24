@@ -18,3 +18,5 @@
 "openingDate" = "개봉일";
 "totalAudience" = "누적관객수";
 "person" = "명";
+"boxOfficeType" = "타입: ";
+"showRange" = "기간: ";

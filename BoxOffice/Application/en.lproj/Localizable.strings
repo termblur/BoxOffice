@@ -17,3 +17,5 @@
 "openingDate" = "Open Date";
 "totalAudience" = "Total Audience";
 "person" = " (headcount)";
+"boxOfficeType" = "Type: ";
+"showRange" = "Range: ";

@@ -64,6 +64,32 @@ final class MainViewController: UIViewController {
         return button
     }()
     
+    private let boxOfficeTypeDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.text = "boxOfficeType".localized()
+        return label
+    }()
+    
+    private let boxOfficeTypeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        return label
+    }()
+    
+    private let rangeDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.text = "showRange".localized()
+        return label
+    }()
+    
+    private let rangeLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        return label
+    }()
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.isScrollEnabled = true
@@ -71,6 +97,8 @@ final class MainViewController: UIViewController {
         table.showsHorizontalScrollIndicator = false
         table.allowsSelection = true
         table.separatorStyle = .singleLine
+        table.separatorColor = .systemGray
+        table.separatorInset = .init(top: 0, left: 0, bottom: 0, right: 0)
         table.rowHeight = 100
         table.register(TableViewCell.self,
                        forCellReuseIdentifier: TableViewCell.id)
@@ -103,7 +131,7 @@ final class MainViewController: UIViewController {
     private var tableDataSource: UITableViewDiffableDataSource<TableViewSectionKind, WeeklyBoxOffice>?
     
     private lazy var input = MainViewModel.Input(
-        searchButtonTapped: searchButton.rx.tap.asObservable(),
+        searchButtonTapped: searchButton.rx.tap.asDriver(),
         selectedDate: datePicker.rx.date.asObservable(),
         weekType: segmentedControl.rx.selectedSegmentIndex.asObservable()
     )
@@ -141,6 +169,10 @@ final class MainViewController: UIViewController {
         view.addSubview(dateDescriptionLabel)
         view.addSubview(datePicker)
         view.addSubview(searchButton)
+        view.addSubview(boxOfficeTypeDescriptionLabel)
+        view.addSubview(boxOfficeTypeLabel)
+        view.addSubview(rangeDescriptionLabel)
+        view.addSubview(rangeLabel)
         view.addSubview(tableView)
         tableView.addSubview(emptyTableDescriptionLabel)
         view.addSubview(blockView)
@@ -173,8 +205,30 @@ final class MainViewController: UIViewController {
             $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
+        boxOfficeTypeDescriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(5)
+        }
+        
+        boxOfficeTypeLabel.snp.makeConstraints {
+            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.leading.equalTo(boxOfficeTypeDescriptionLabel.snp.trailing)
+        }
+        
+        rangeDescriptionLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        rangeDescriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.leading.equalTo(view.snp.centerX)
+        }
+        
+        rangeLabel.snp.makeConstraints {
+            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.leading.equalTo(rangeDescriptionLabel.snp.trailing)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+        }
+        
         tableView.snp.makeConstraints {
-            $0.top.equalTo(datePicker.snp.bottom).offset(10)
+            $0.top.equalTo(boxOfficeTypeDescriptionLabel.snp.bottom).offset(10)
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
         }
         
@@ -204,6 +258,18 @@ final class MainViewController: UIViewController {
         output.selectedDate
             .emit(onNext: { [weak self] _ in
                 self?.dismiss(animated: false)
+            })
+            .disposed(by: bag)
+        
+        output.boxOfficeType
+            .drive(onNext: { [weak self] in
+                self?.boxOfficeTypeLabel.text = $0
+            })
+            .disposed(by: bag)
+        
+        output.dateRange
+            .drive(onNext: { [weak self] in
+                self?.rangeLabel.text = $0
             })
             .disposed(by: bag)
     }
