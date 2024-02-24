@@ -13,7 +13,7 @@ import RxSwift
 
 final class DefaultMovieInfoRepository: MovieInfoRepository {
     func requestMovieInfo(movieCode: String) -> Single<MovieInfoResponse> {
-        let url = BoxOffice.weeklyBoxOfficeListUrl
+        let url = BoxOffice.movieInfoUrl
         let parameters: Parameters = [
             "key": BoxOffice.serviceKey,
             "movieCd": movieCode

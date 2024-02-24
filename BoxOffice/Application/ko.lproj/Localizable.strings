@@ -20,3 +20,9 @@
 "person" = "명";
 "boxOfficeType" = "타입: ";
 "showRange" = "기간: ";
+"movieName" = "영화 제목";
+"movieEnglishName" = "영화 제목(영어)";
+"showTime" = "상영시간";
+"produecedYear" = "제작년도";
+"openDate" = "개봉일";
+"minute" = "분";

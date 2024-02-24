@@ -14,7 +14,7 @@ import RxCocoa
 final class BoxOfficeViewController: UIViewController {
     // MARK: - Properties
 
-    let viewModel: BoxOfficeViewModel
+    private let viewModel: BoxOfficeViewModel
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -68,12 +68,15 @@ final class BoxOfficeViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.text = "boxOfficeType".localized()
+        label.textColor = .secondaryLabel
+        label.isHidden = true
         return label
     }()
     
     private let boxOfficeTypeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.font = .systemFont(ofSize: 13, weight: .bold)
+        label.isHidden = true
         return label
     }()
     
@@ -81,12 +84,15 @@ final class BoxOfficeViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13, weight: .regular)
         label.text = "showRange".localized()
+        label.textColor = .secondaryLabel
+        label.isHidden = true
         return label
     }()
     
     private let rangeLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.font = .systemFont(ofSize: 13, weight: .bold)
+        label.isHidden = true
         return label
     }()
     
@@ -250,6 +256,10 @@ final class BoxOfficeViewController: UIViewController {
         output.boxOfficeList
             .drive(onNext: { [weak self] in
                 self?.emptyTableDescriptionLabel.isHidden = $0.isEmpty ? false : true
+                self?.rangeLabel.isHidden = $0.isEmpty ? true : false
+                self?.rangeDescriptionLabel.isHidden = $0.isEmpty ? true : false
+                self?.boxOfficeTypeLabel.isHidden = $0.isEmpty ? true : false
+                self?.boxOfficeTypeDescriptionLabel.isHidden = $0.isEmpty ? true : false
                 self?.boxOfficeList = $0
                 self?.applySnapshot(box: $0)
             })
@@ -276,11 +286,11 @@ final class BoxOfficeViewController: UIViewController {
     
     private func configureViews() {
         self.view.backgroundColor = .systemBackground
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
     }
     
     private func configureTableView() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableDataSource = UITableViewDiffableDataSource(
             tableView: tableView,
             cellProvider: { tableView, indexPath, item -> UITableViewCell? in

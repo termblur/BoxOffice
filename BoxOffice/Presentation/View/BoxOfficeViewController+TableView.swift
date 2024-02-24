@@ -10,7 +10,10 @@ import UIKit
 
 extension BoxOfficeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(boxOfficeList[indexPath.row].movieCD)
+        let vm = MovieInfoViewModel(movieInfoRepository: DefaultMovieInfoRepository())
+        let vc = MovieInfoViewController(viewModel: vm,
+                                         movieCode: boxOfficeList[indexPath.row].movieCD)
+        self.present(vc, animated: true)
     }
 }
 

@@ -19,3 +19,9 @@
 "person" = " (headcount)";
 "boxOfficeType" = "Type: ";
 "showRange" = "Range: ";
+"movieName" = "Movie Title";
+"movieEnglishName" = "Movie English Name";
+"showTime" = "Running Time";
+"produecedYear" = "Production Year";
+"openDate" = "Release Date";
+"minute" = "min";

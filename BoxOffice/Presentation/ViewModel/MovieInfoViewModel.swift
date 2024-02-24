@@ -12,64 +12,51 @@ import RxCocoa
 
 final class MovieInfoViewModel: ViewModel {
     struct Input {
-        let searchButtonTapped: Driver<Void>
-        let selectedDate: Observable<Date>
-        let weekType: Observable<Int>
+        let movieCode: Observable<String>
     }
     
     struct Output {
-        let boxOfficeList: Driver<[WeeklyBoxOffice]>
-        let selectedDate: Signal<Date>
-        let boxOfficeType: Driver<String>
-        let dateRange: Driver<String>
+        let movieName: Driver<String>
+        let movieEnglishName: Driver<String>
+        let showTime: Driver<String>
+        let produecedYear: Driver<String>
+        let openDate: Driver<String>
     }
     
     private let bag = DisposeBag()
-    private let boxOfficeRepository: BoxOfficeRepository
+    private let movieInfoRepository: MovieInfoRepository
     
-    init(boxOfficeRepository: BoxOfficeRepository) {
-        self.boxOfficeRepository = boxOfficeRepository
+    init(movieInfoRepository: MovieInfoRepository) {
+        self.movieInfoRepository = movieInfoRepository
     }
     
     func transform(input: Input) -> Output {
-        let boxOfficeList = PublishSubject<[WeeklyBoxOffice]>()
-        let selectedDate = BehaviorSubject<Date>(value: .now)
-        let weekType = BehaviorSubject<Int>(value: 0)
-        let boxOfficeType = BehaviorSubject<String>(value: "-")
-        let range = BehaviorSubject<String>(value: "-")
-        
-        input.selectedDate
-            .subscribe(onNext: {
-                selectedDate.onNext($0)
-            })
-            .disposed(by: bag)
-        
-        input.weekType
-            .subscribe(onNext: {
-                weekType.onNext($0)
-            })
-            .disposed(by: bag)
-        
-        input.searchButtonTapped
-            .throttle(.milliseconds(500))
-            .asObservable()
-            .withLatestFrom(Observable.combineLatest(selectedDate, weekType))
+        let movieName = BehaviorSubject<String>(value: "-")
+        let movieEnglishName = BehaviorSubject<String>(value: "-")
+        let showTime = BehaviorSubject<String>(value: "-")
+        let produecedYear = BehaviorSubject<String>(value: "-")
+        let openDate = BehaviorSubject<String>(value: "-")
+
+        input.movieCode
             .compactMap { [weak self] in
-                self?.boxOfficeRepository.requestWeeklyBoxOfficeList(targetDate: $0, weekType: $1)
+                self?.movieInfoRepository.requestMovieInfo(movieCode: $0)
             }
             .flatMap { $0 }
-            .subscribe(onNext: { result in
-                boxOfficeList.onNext(result.weeklyBoxOfficeList)
-                boxOfficeType.onNext(result.boxofficeType)
-                range.onNext(result.showRange)
+            .subscribe(onNext: {
+                movieName.onNext($0.movieName)
+                movieEnglishName.onNext($0.movieEnglishName)
+                showTime.onNext($0.showTime)
+                produecedYear.onNext($0.producedYear)
+                openDate.onNext($0.openDate)
             })
             .disposed(by: bag)
         
         return Output(
-            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: []),
-            selectedDate: selectedDate.asSignal(onErrorJustReturn: .now),
-            boxOfficeType: boxOfficeType.asDriver(onErrorJustReturn: "-"),
-            dateRange: range.asDriver(onErrorJustReturn: "-")
+            movieName: movieName.asDriver(onErrorJustReturn: "-"),
+            movieEnglishName: movieEnglishName.asDriver(onErrorJustReturn: "-"),
+            showTime: showTime.asDriver(onErrorJustReturn: "-"),
+            produecedYear: produecedYear.asDriver(onErrorJustReturn: "-"),
+            openDate: openDate.asDriver(onErrorJustReturn: "-")
         )
     }
 }
