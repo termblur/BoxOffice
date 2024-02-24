@@ -13,6 +13,7 @@ extension BoxOfficeViewController: UITableViewDelegate {
         let vm = MovieInfoViewModel(movieInfoRepository: DefaultMovieInfoRepository())
         let vc = MovieInfoViewController(viewModel: vm,
                                          movieCode: boxOfficeList[indexPath.row].movieCD)
+        vc.sheetPresentationController?.prefersGrabberVisible = true
         self.present(vc, animated: true)
     }
 }
