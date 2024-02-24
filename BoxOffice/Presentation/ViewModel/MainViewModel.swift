@@ -19,6 +19,7 @@ final class MainViewModel: ViewModel {
     
     struct Output {
         let boxOfficeList: Driver<[WeeklyBoxOffice]>
+        let selectedDate: Signal<Date>
     }
     
     private let bag = DisposeBag()
@@ -53,7 +54,8 @@ final class MainViewModel: ViewModel {
             .disposed(by: bag)
         
         return Output(
-            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: [])
+            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: []), 
+            selectedDate: selectedDate.asSignal(onErrorJustReturn: .now)
         )
     }
 }

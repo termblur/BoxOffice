@@ -47,6 +47,7 @@ final class MainViewController: UIViewController {
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .compact
         picker.locale = .current
+        picker.showsMenuAsPrimaryAction = true
         return picker
     }()
     
@@ -197,6 +198,12 @@ final class MainViewController: UIViewController {
                 self?.emptyTableDescriptionLabel.isHidden = $0.isEmpty ? false : true
                 self?.boxOfficeList = $0
                 self?.applySnapshot(box: $0)
+            })
+            .disposed(by: bag)
+        
+        output.selectedDate
+            .emit(onNext: { [weak self] _ in
+                self?.dismiss(animated: false)
             })
             .disposed(by: bag)
     }
