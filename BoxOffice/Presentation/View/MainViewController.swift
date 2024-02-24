@@ -190,14 +190,9 @@ final class MainViewController: UIViewController {
     private func bind(output: MainViewModel.Output) {
         output.boxOfficeList
             .drive(onNext: { [weak self] in
-                guard let boxOfficeList = $0 else { return }
-                if boxOfficeList.isEmpty {
-                    self?.emptyTableDescriptionLabel.isHidden = false
-                } else {
-                    self?.emptyTableDescriptionLabel.isHidden = true
-                }
-                self?.boxOfficeList = boxOfficeList
-                self?.applySnapshot(box: boxOfficeList)
+                self?.emptyTableDescriptionLabel.isHidden = $0.isEmpty ? false : true
+                self?.boxOfficeList = $0
+                self?.applySnapshot(box: $0)
             })
             .disposed(by: bag)
     }

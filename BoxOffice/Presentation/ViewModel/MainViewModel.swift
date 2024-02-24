@@ -18,14 +18,14 @@ final class MainViewModel: ViewModel {
     }
     
     struct Output {
-        let boxOfficeList: Driver<[WeeklyBoxOffice]?>
+        let boxOfficeList: Driver<[WeeklyBoxOffice]>
     }
     
     private let bag = DisposeBag()
     private let BoxOfficeRepository: BoxOfficeRepository = DefaultBoxOfficeRepository()
     
     func transform(input: Input) -> Output {
-        let boxOfficeList = BehaviorSubject<[WeeklyBoxOffice]?>(value: nil)
+        let boxOfficeList = PublishSubject<[WeeklyBoxOffice]>()
         let selectedDate = BehaviorSubject<Date>(value: .now)
         let weekType = BehaviorSubject<Int>(value: 0)
         
@@ -53,7 +53,7 @@ final class MainViewModel: ViewModel {
             .disposed(by: bag)
         
         return Output(
-            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: nil)
+            boxOfficeList: boxOfficeList.asDriver(onErrorJustReturn: [])
         )
     }
 }
