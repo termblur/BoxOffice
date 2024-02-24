@@ -9,5 +9,5 @@ struct BoxOfficeListResponse {
     let boxofficeType: String
     let showRange: String
     let yearWeekTime: String
-    let weeklyBoxOfficeList: [WeeklyBoxOfficeList]
+    let weeklyBoxOfficeList: [WeeklyBoxOffice]
 }

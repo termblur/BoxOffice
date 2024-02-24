@@ -5,8 +5,11 @@
 //  Created by STJANG on 2/23/24.
 //
 
+import Foundation
+
 import RxSwift
 
+
 protocol BoxOfficeRepository {
-    func requestWeeklyBoxOfficeList(targetDate: Date, weekType: WeekType) -> Single<MovieInfoResponse>
+    func requestWeeklyBoxOfficeList(targetDate: Date, weekType: Int) -> Single<BoxOfficeListResponse>
 }

@@ -15,3 +15,14 @@ extension Date {
     }
     
 }
+
+
+extension String {
+    func withCommaAndUnit() -> Self {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        let number = NSNumber(value: Int64(self) ?? 0)
+        return (formatter.string(from: number) ?? "0") + "명"
+    }
+}

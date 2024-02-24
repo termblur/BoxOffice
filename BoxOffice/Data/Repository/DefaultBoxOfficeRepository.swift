@@ -12,12 +12,12 @@ import RxSwift
 
 
 final class DefaultBoxOfficeRepository: BoxOfficeRepository {
-    func requestWeeklyBoxOfficeList(targetDate: Date, weekType: WeekType) -> Single<MovieInfoResponse> {
+    func requestWeeklyBoxOfficeList(targetDate: Date, weekType: Int) -> Single<BoxOfficeListResponse> {
         let url = BoxOffice.weeklyBoxOfficeListUrl
         let parameters: Parameters = [
             "key": BoxOffice.serviceKey,
             "targetDt": targetDate.toString(),
-            "weekGb": weekType.rawValue
+            "weekGb": String(weekType)
         ]
         
         return Single.create { single in
@@ -26,7 +26,7 @@ final class DefaultBoxOfficeRepository: BoxOfficeRepository {
                                      parameters: parameters,
                                      encoding: URLEncoding.default)
                 .validate(statusCode: 200..<300)
-                .responseDecodable(of: MovieInfoResponseDTO.self) { response in
+                .responseDecodable(of: BoxOfficeListResponseDTO.self) { response in
                     switch response.result {
                     case .success(let data):
                         single(.success(data.toDomain()))

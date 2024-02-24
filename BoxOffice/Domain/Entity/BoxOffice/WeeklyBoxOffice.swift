@@ -1,11 +1,11 @@
 //
-//  WeeklyBoxOfficeList.swift
+//  WeeklyBoxOffice.swift
 //  BoxOffice
 //
 //  Created by STJANG on 2/23/24.
 //
 
-struct WeeklyBoxOfficeList: Decodable {
+struct WeeklyBoxOffice: Decodable, Hashable {
     let rnum: String
     let rank: String
     let rankInten: String

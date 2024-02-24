@@ -7,9 +7,9 @@
 
 struct BoxOfficeResult: Decodable {
     let boxofficeType: String
-    let showRange: String
-    let yearWeekTime: String
-    let weeklyBoxOfficeList: [WeeklyBoxOfficeList]
+    var showRange: String?
+    var yearWeekTime: String?
+    let weeklyBoxOfficeList: [WeeklyBoxOffice]
 
     enum CodingKeys: String, CodingKey {
         case boxofficeType = "boxofficeType"

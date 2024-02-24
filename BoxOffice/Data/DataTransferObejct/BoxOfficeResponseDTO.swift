@@ -17,8 +17,8 @@ extension BoxOfficeListResponseDTO {
     func toDomain() -> BoxOfficeListResponse {
         return .init(
             boxofficeType: self.boxOfficeResult.boxofficeType,
-            showRange: self.boxOfficeResult.showRange,
-            yearWeekTime: self.boxOfficeResult.yearWeekTime,
+            showRange: self.boxOfficeResult.showRange ?? "-",
+            yearWeekTime: self.boxOfficeResult.yearWeekTime ?? "-",
             weeklyBoxOfficeList: self.boxOfficeResult.weeklyBoxOfficeList
         )
     }
