@@ -17,7 +17,7 @@ final class TableViewCell: UITableViewCell {
     private let rankDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
-        label.text = "순위"
+        label.text = "rank".localized()
         label.textColor = .secondaryLabel
         return label
     }()
@@ -32,7 +32,7 @@ final class TableViewCell: UITableViewCell {
     private let titleDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .semibold)
-        label.text = "영화명"
+        label.text = "movieName".localized()
         label.textColor = .secondaryLabel
         return label
     }()
@@ -47,7 +47,7 @@ final class TableViewCell: UITableViewCell {
     private let openDateDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
-        label.text = "개봉일"
+        label.text = "openingDate".localized()
         label.textColor = .secondaryLabel
         return label
     }()
@@ -63,7 +63,7 @@ final class TableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.textColor = .secondaryLabel
-        label.text = "누적관객수"
+        label.text = "totalAudience".localized()
         return label
     }()
     

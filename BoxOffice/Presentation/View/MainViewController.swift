@@ -19,12 +19,16 @@ final class MainViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .semibold)
-        label.text = "Box Office"
+        label.text = "Box Office".localized()
         return label
     }()
     
     private let segmentedControl: UISegmentedControl = {
-        let items = ["주간(월~일)", "주말(금~일)", "주중(월~목)"]
+        let items = [
+            "Week(Mon~Sun)".localized(),
+            "Weekends(Fri~Sun)".localized(),
+            "Weekdays(Mon-Thu)".localized()
+        ]
         let control = UISegmentedControl(items: items)
         control.selectedSegmentIndex = 0
         return control
@@ -33,7 +37,7 @@ final class MainViewController: UIViewController {
     private let dateDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .semibold)
-        label.text = "기준날짜:"
+        label.text = "As of the Date:".localized()
         return label
     }()
     
@@ -42,7 +46,7 @@ final class MainViewController: UIViewController {
         picker.date = Date()
         picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .compact
-        picker.locale = Locale(identifier: "ko-KR")
+        picker.locale = .current
         return picker
     }()
     
@@ -50,7 +54,7 @@ final class MainViewController: UIViewController {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 10))
         var config = UIButton.Configuration.filled()
-        config.title = "조회"
+        config.title = "search".localized()
         config.image = UIImage(systemName: "magnifyingglass",
                                withConfiguration: imageConfig)
         config.imagePlacement = .leading
@@ -75,7 +79,7 @@ final class MainViewController: UIViewController {
     private let emptyTableDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .semibold)
-        label.text = "선택한 날짜에는 아직 데이터가 없어요🥲"
+        label.text = "No data as of the Date🥲".localized()
         label.isHidden = true
         return label
     }()
@@ -155,12 +159,12 @@ final class MainViewController: UIViewController {
         
         dateDescriptionLabel.snp.makeConstraints {
             $0.centerY.equalTo(searchButton.snp.centerY)
-            $0.trailing.equalTo(datePicker.snp.leading)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(5)
         }
         
         datePicker.snp.makeConstraints {
             $0.centerY.equalTo(searchButton.snp.centerY)
-            $0.leading.equalTo(view.snp.centerX)
+            $0.leading.equalTo(dateDescriptionLabel.snp.trailing)
         }
         
         searchButton.snp.makeConstraints {

@@ -11,6 +11,7 @@
 		077E3D4C2B89B81600ED14FC /* TableViewSectionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D4B2B89B81600ED14FC /* TableViewSectionKind.swift */; };
 		077E3D4E2B89B95000ED14FC /* MainViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D4D2B89B95000ED14FC /* MainViewController+TableView.swift */; };
 		077E3D502B89CB0200ED14FC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 077E3D4F2B89CB0200ED14FC /* RxCocoa */; };
+		077E3D542B8A092400ED14FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077E3D562B8A092400ED14FC /* Localizable.strings */; };
 		880EA56C2B886F1D003F87E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EA56B2B886F1D003F87E2 /* AppDelegate.swift */; };
 		880EA56E2B886F1D003F87E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EA56D2B886F1D003F87E2 /* SceneDelegate.swift */; };
 		880EA5702B886F1D003F87E2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880EA56F2B886F1D003F87E2 /* MainViewController.swift */; };
@@ -67,6 +68,8 @@
 		077E3D492B88D05300ED14FC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		077E3D4B2B89B81600ED14FC /* TableViewSectionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionKind.swift; sourceTree = "<group>"; };
 		077E3D4D2B89B95000ED14FC /* MainViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableView.swift"; sourceTree = "<group>"; };
+		077E3D552B8A092400ED14FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		077E3D572B8A094300ED14FC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		880EA5682B886F1D003F87E2 /* BoxOffice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxOffice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		880EA56B2B886F1D003F87E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		880EA56D2B886F1D003F87E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 		88B8BF282B88713E0056CE8D /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				077E3D562B8A092400ED14FC /* Localizable.strings */,
 				880EA56B2B886F1D003F87E2 /* AppDelegate.swift */,
 				880EA56D2B886F1D003F87E2 /* SceneDelegate.swift */,
 			);
@@ -419,6 +423,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 880EA55F2B886F1D003F87E2;
 			packageReferences = (
@@ -443,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				880EA5782B886F1F003F87E2 /* LaunchScreen.storyboard in Resources */,
+				077E3D542B8A092400ED14FC /* Localizable.strings in Resources */,
 				880EA5752B886F1F003F87E2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,6 +538,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		077E3D562B8A092400ED14FC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				077E3D552B8A092400ED14FC /* en */,
+				077E3D572B8A094300ED14FC /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		880EA5762B886F1F003F87E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -548,6 +563,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -595,7 +611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -611,6 +627,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -652,7 +669,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

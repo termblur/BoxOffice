@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  BoxOffice
+
+  Created by termblur on 2/24/24.
+  
+*/
+
+"Box Office" = "Box Office";
+"search" = "search";
+"As of the Date:" = "As of the Date:";
+"Week(Mon~Sun)" = "Mon ~ Sun";
+"Weekends(Fri~Sun)" = "Fri ~ Sun";
+"Weekdays(Mon-Thu)" = "Mon - Thu";
+"rank" = "Rank";
+"movieName" = "Movie Title";
+"openingDate" = "Open Date";
+"totalAudience" = "Total Audience";
+"person" = " (headcount)";
