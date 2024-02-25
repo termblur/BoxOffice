@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0700A2DE2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A2DD2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift */; };
+		0700A2E02B8B1B75008925B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A2DF2B8B1B75008925B0 /* ContentView.swift */; };
+		0700A2E22B8B1B77008925B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0700A2E12B8B1B77008925B0 /* Assets.xcassets */; };
+		0700A2E52B8B1B77008925B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0700A2E42B8B1B77008925B0 /* Preview Assets.xcassets */; };
 		077E3D4A2B88D05300ED14FC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D492B88D05300ED14FC /* TableViewCell.swift */; };
 		077E3D4C2B89B81600ED14FC /* TableViewSectionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D4B2B89B81600ED14FC /* TableViewSectionKind.swift */; };
 		077E3D4E2B89B95000ED14FC /* BoxOfficeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D4D2B89B95000ED14FC /* BoxOfficeViewController+TableView.swift */; };
@@ -69,6 +73,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0700A2DB2B8B1B75008925B0 /* BoxOffcie_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxOffcie_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0700A2DD2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOffcie_SwiftUIApp.swift; sourceTree = "<group>"; };
+		0700A2DF2B8B1B75008925B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0700A2E12B8B1B77008925B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0700A2E42B8B1B77008925B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		077E3D492B88D05300ED14FC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		077E3D4B2B89B81600ED14FC /* TableViewSectionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionKind.swift; sourceTree = "<group>"; };
 		077E3D4D2B89B95000ED14FC /* BoxOfficeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoxOfficeViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -115,6 +124,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0700A2D82B8B1B74008925B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		880EA5652B886F1D003F87E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,10 +159,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0700A2DC2B8B1B75008925B0 /* BoxOffcie_SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				0700A2E32B8B1B77008925B0 /* Preview Content */,
+				0700A2E12B8B1B77008925B0 /* Assets.xcassets */,
+				0700A2DD2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift */,
+				0700A2DF2B8B1B75008925B0 /* ContentView.swift */,
+			);
+			path = BoxOffcie_SwiftUI;
+			sourceTree = "<group>";
+		};
+		0700A2E32B8B1B77008925B0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0700A2E42B8B1B77008925B0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		880EA55F2B886F1D003F87E2 = {
 			isa = PBXGroup;
 			children = (
 				880EA56A2B886F1D003F87E2 /* BoxOffice */,
+				0700A2DC2B8B1B75008925B0 /* BoxOffcie_SwiftUI */,
 				880EA5812B886F1F003F87E2 /* BoxOfficeTests */,
 				880EA58B2B886F1F003F87E2 /* BoxOfficeUITests */,
 				880EA5692B886F1D003F87E2 /* Products */,
@@ -160,6 +196,7 @@
 				880EA5682B886F1D003F87E2 /* BoxOffice.app */,
 				880EA57E2B886F1F003F87E2 /* BoxOfficeTests.xctest */,
 				880EA5882B886F1F003F87E2 /* BoxOfficeUITests.xctest */,
+				0700A2DB2B8B1B75008925B0 /* BoxOffcie_SwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,6 +383,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0700A2DA2B8B1B74008925B0 /* BoxOffcie_SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0700A2E82B8B1B77008925B0 /* Build configuration list for PBXNativeTarget "BoxOffcie_SwiftUI" */;
+			buildPhases = (
+				0700A2D72B8B1B74008925B0 /* Sources */,
+				0700A2D82B8B1B74008925B0 /* Frameworks */,
+				0700A2D92B8B1B74008925B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BoxOffcie_SwiftUI;
+			productName = BoxOffcie_SwiftUI;
+			productReference = 0700A2DB2B8B1B75008925B0 /* BoxOffcie_SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
 		880EA5672B886F1D003F87E2 /* BoxOffice */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 880EA5922B886F1F003F87E2 /* Build configuration list for PBXNativeTarget "BoxOffice" */;
@@ -415,6 +469,9 @@
 				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1520;
 				TargetAttributes = {
+					0700A2DA2B8B1B74008925B0 = {
+						CreatedOnToolsVersion = 15.2;
+					};
 					880EA5672B886F1D003F87E2 = {
 						CreatedOnToolsVersion = 15.2;
 					};
@@ -450,11 +507,21 @@
 				880EA5672B886F1D003F87E2 /* BoxOffice */,
 				880EA57D2B886F1F003F87E2 /* BoxOfficeTests */,
 				880EA5872B886F1F003F87E2 /* BoxOfficeUITests */,
+				0700A2DA2B8B1B74008925B0 /* BoxOffcie_SwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0700A2D92B8B1B74008925B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0700A2E52B8B1B77008925B0 /* Preview Assets.xcassets in Resources */,
+				0700A2E22B8B1B77008925B0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		880EA5662B886F1D003F87E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,6 +549,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0700A2D72B8B1B74008925B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0700A2E02B8B1B75008925B0 /* ContentView.swift in Sources */,
+				0700A2DE2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		880EA5642B886F1D003F87E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -574,6 +650,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0700A2E62B8B1B77008925B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BoxOffcie_SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = N8PP6SFL29;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.termblur.BoxOffcie-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0700A2E72B8B1B77008925B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BoxOffcie_SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = N8PP6SFL29;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.termblur.BoxOffcie-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		880EA5902B886F1F003F87E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -838,6 +974,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0700A2E82B8B1B77008925B0 /* Build configuration list for PBXNativeTarget "BoxOffcie_SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0700A2E62B8B1B77008925B0 /* Debug */,
+				0700A2E72B8B1B77008925B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		880EA5632B886F1D003F87E2 /* Build configuration list for PBXProject "BoxOffice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
