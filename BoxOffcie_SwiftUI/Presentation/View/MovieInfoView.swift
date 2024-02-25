@@ -18,6 +18,8 @@ struct MovieInfoView: View {
     @State private var isLoading: Bool = true
     
     let movieCode: String
+    private let betweenSectionSpace: CGFloat = 40
+    private let inSectionSpace: CGFloat = 10
     
     var body: some View {
         ZStack {
@@ -33,50 +35,62 @@ struct MovieInfoView: View {
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
+                    Spacer()
+                        .frame(height: inSectionSpace)
                     Text(movieTitle)
                         .bold()
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: betweenSectionSpace)
                     
                     HStack {
                         Text("movieEnglishName".localized())
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
+                    Spacer()
+                        .frame(height: inSectionSpace)
                     Text(movieEnglishTitle)
                         .bold()
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: betweenSectionSpace)
                     
                     HStack {
                         Text("showTime".localized())
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
+                    Spacer()
+                        .frame(height: inSectionSpace)
                     Text(runningTime + "minute".localized())
                         .bold()
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: betweenSectionSpace)
                     
                     HStack {
                         Text("produecedYear".localized())
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
+                    Spacer()
+                        .frame(height: inSectionSpace)
                     Text(productionYear)
                         .bold()
                     Spacer()
-                        .frame(height: 20)
+                        .frame(height: betweenSectionSpace)
                     
                     HStack {
                         Text("openDate".localized())
                             .foregroundStyle(.secondary)
                         Spacer()
                     }
+                    Spacer()
+                        .frame(height: inSectionSpace)
                     Text(openDate)
                         .bold()
                     Spacer()
                 }
+                .lineLimit(1)
+                .padding(.horizontal, 15)
             }
         }
         .task {

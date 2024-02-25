@@ -8,5 +8,6 @@
 enum LoadingState {
     case loading
     case finish
+    case finishButNoData
     case nothing
 }

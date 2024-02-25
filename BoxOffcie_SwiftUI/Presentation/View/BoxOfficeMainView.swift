@@ -17,83 +17,85 @@ struct BoxOfficeMainView: View {
     @State private var showRange: String = "-"
     
     var body: some View {
-        VStack {
-            Text("Box Office".localized())
-                .font(.title3)
-                .bold()
-            Picker("", selection: $vm.weekType) {
-                Text("Week(Mon~Sun)".localized()).tag(0)
-                Text("Weekends(Fri~Sun)".localized()).tag(1)
-                Text("Weekdays(Mon-Thu)".localized()).tag(2)
-            }
-            .pickerStyle(.segmented)
-            
-            HStack {
-                Text("As of the Date:".localized())
-                DatePicker("",
-                           selection: $vm.selectedDate,
-                           displayedComponents: [.date])
-                .datePickerStyle(.compact)
-                .environment(\.locale, .current)
-                .labelsHidden()
-                .frame(alignment: .leading)
-                .padding(2)
-                .id(calendarId)
-                .onChange(of: vm.selectedDate) {
-                    calendarId = UUID()
+        NavigationStack {
+            VStack {
+                Text("Box Office".localized() + " by SwiftUI")
+                    .font(.title3)
+                    .bold()
+                Picker("", selection: $vm.weekType) {
+                    Text("Week(Mon~Sun)".localized()).tag(0)
+                    Text("Weekends(Fri~Sun)".localized()).tag(1)
+                    Text("Weekdays(Mon-Thu)".localized()).tag(2)
                 }
+                .pickerStyle(.segmented)
                 
-                Spacer()
-                
-                Button(action: {
-                    isTappedSearchButton.toggle()
-                }, label: {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                        Text("search".localized())
-                    }
-                })
-                .buttonStyle(.borderedProminent)
-
-            }
-            
-            if isLoading == .finish {
                 HStack {
-                    Text("boxOfficeType".localized())
-                        .foregroundStyle(.secondary)
-                    Text(boxOfficeType)
-                        .bold()
+                    Text("As of the Date:".localized())
+                    DatePicker("",
+                               selection: $vm.selectedDate,
+                               displayedComponents: [.date])
+                    .datePickerStyle(.compact)
+                    .environment(\.locale, .current)
+                    .labelsHidden()
+                    
                     Spacer()
-                    Text("showRange".localized())
-                        .foregroundStyle(.secondary)
-                    Text(showRange)
-                        .bold()
+                    
+                    Button(action: {
+                        isTappedSearchButton.toggle()
+                    }, label: {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                            Text("search".localized())
+                        }
+                    })
+                    .buttonStyle(.borderedProminent)
+                    
                 }
-                .font(.caption)
-                BoxOfficeTableView()
-            } else if isLoading == .loading {
-                Spacer()
-                ProgressView()
-                    .controlSize(.large)
-                Spacer()
-            } else {
-                Spacer()
+                
+                switch isLoading {
+                case .loading:
+                    Spacer()
+                    ProgressView()
+                        .controlSize(.regular)
+                    Spacer()
+                case .finish:
+                    HStack {
+                        Text("boxOfficeType".localized())
+                            .foregroundStyle(.secondary)
+                        Text(boxOfficeType)
+                            .bold()
+                        Spacer()
+                        Text("showRange".localized())
+                            .foregroundStyle(.secondary)
+                        Text(showRange)
+                            .bold()
+                    }
+                    .font(.caption)
+                    BoxOfficeTableView()
+                case .finishButNoData:
+                    Spacer()
+                    Text("No data as of the Date🥲".localized())
+                        .font(.headline)
+                    Spacer()
+                case .nothing:
+                    Spacer()
+                }
             }
-        }
-        .padding(5)
-        .onChange(of: isTappedSearchButton) {
-            Task {
-                do {
-                    isLoading = .loading
-                    let weekBoxOffice = try await vm.boxOfficeRepository.requestWeeklyBoxOfficeList(targetDate: vm.selectedDate,
-                                                                                                    weekType: vm.weekType)
-                    vm.weeklyBoxOfficeList = weekBoxOffice.weeklyBoxOfficeList
-                    showRange = weekBoxOffice.showRange
-                    boxOfficeType = weekBoxOffice.boxofficeType
-                    isLoading = weekBoxOffice.weeklyBoxOfficeList.isEmpty ? .nothing : .finish
-                } catch {
-                    debugPrint(Errors.failedFetchBoxOfficeList.localizedDescription)
-                    isLoading = .nothing
+            .padding(5)
+            .onChange(of: isTappedSearchButton) {
+                Task {
+                    do {
+                        isLoading = .loading
+                        let weekBoxOffice = try await vm.boxOfficeRepository.requestWeeklyBoxOfficeList(targetDate: vm.selectedDate,
+                                                                                                        weekType: vm.weekType)
+                        vm.weeklyBoxOfficeList = weekBoxOffice.weeklyBoxOfficeList
+                        showRange = weekBoxOffice.showRange
+                        boxOfficeType = weekBoxOffice.boxofficeType
+                        isLoading = weekBoxOffice.weeklyBoxOfficeList.isEmpty ? .finishButNoData : .finish
+                    } catch {
+                        debugPrint(Errors.failedFetchBoxOfficeList.localizedDescription)
+                        isLoading = .nothing
+                    }
                 }
             }
         }
