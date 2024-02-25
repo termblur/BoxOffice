@@ -18,7 +18,7 @@ struct BoxOffcie_SwiftUIApp: App {
         WindowGroup {
             Group {
                 if isConnectNetwork {
-                    BoxOfficeView()
+                    BoxOfficeMainView()
                 } else {
                     NetworkUnavailableView()
                 }

@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct BoxOfficeTableView: View {
+    @EnvironmentObject private var vm: ViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(vm.weeklyBoxOfficeList, id: \.self) { boxOffice in
+                BoxOfficeTableCellView(weeklyBoxOffcie: boxOffice)
+            }
+        }
+        .listStyle(.plain)
     }
-}
-
-#Preview {
-    BoxOfficeTableView()
 }

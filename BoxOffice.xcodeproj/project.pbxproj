@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0700A2DE2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A2DD2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift */; };
-		0700A2E02B8B1B75008925B0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A2DF2B8B1B75008925B0 /* ContentView.swift */; };
+		0700A2E02B8B1B75008925B0 /* BoxOfficeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A2DF2B8B1B75008925B0 /* BoxOfficeMainView.swift */; };
 		0700A2E22B8B1B77008925B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0700A2E12B8B1B77008925B0 /* Assets.xcassets */; };
 		0700A2E52B8B1B77008925B0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0700A2E42B8B1B77008925B0 /* Preview Assets.xcassets */; };
 		0700A2F02B8B1F0B008925B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 077E3D562B8A092400ED14FC /* Localizable.strings */; };
@@ -37,6 +37,10 @@
 		0700A3142B8B2629008925B0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A3132B8B2629008925B0 /* ViewModel.swift */; };
 		0700A3172B8B266E008925B0 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A3162B8B266E008925B0 /* NetworkMonitor.swift */; };
 		0700A3192B8B2701008925B0 /* NetworkUnavailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A3182B8B2701008925B0 /* NetworkUnavailableView.swift */; };
+		0700A31B2B8B59A3008925B0 /* BoxOfficeTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A31A2B8B59A3008925B0 /* BoxOfficeTableCellView.swift */; };
+		0700A31D2B8B5E34008925B0 /* MovieInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A31C2B8B5E34008925B0 /* MovieInfoView.swift */; };
+		0700A31F2B8B65D8008925B0 /* BoxOfficeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A31E2B8B65D8008925B0 /* BoxOfficeTableView.swift */; };
+		0700A3212B8B67E9008925B0 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0700A3202B8B67E8008925B0 /* LoadingState.swift */; };
 		077E3D4A2B88D05300ED14FC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D492B88D05300ED14FC /* TableViewCell.swift */; };
 		077E3D4C2B89B81600ED14FC /* TableViewSectionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D4B2B89B81600ED14FC /* TableViewSectionKind.swift */; };
 		077E3D4E2B89B95000ED14FC /* BoxOfficeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077E3D4D2B89B95000ED14FC /* BoxOfficeViewController+TableView.swift */; };
@@ -101,7 +105,7 @@
 /* Begin PBXFileReference section */
 		0700A2DB2B8B1B75008925B0 /* BoxOffcie_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxOffcie_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0700A2DD2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOffcie_SwiftUIApp.swift; sourceTree = "<group>"; };
-		0700A2DF2B8B1B75008925B0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0700A2DF2B8B1B75008925B0 /* BoxOfficeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeMainView.swift; sourceTree = "<group>"; };
 		0700A2E12B8B1B77008925B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0700A2E42B8B1B77008925B0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0700A3052B8B20F8008925B0 /* BoxOfficeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeRepository.swift; sourceTree = "<group>"; };
@@ -112,6 +116,11 @@
 		0700A3132B8B2629008925B0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		0700A3162B8B266E008925B0 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0700A3182B8B2701008925B0 /* NetworkUnavailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUnavailableView.swift; sourceTree = "<group>"; };
+		0700A31A2B8B59A3008925B0 /* BoxOfficeTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableCellView.swift; sourceTree = "<group>"; };
+		0700A31C2B8B5E34008925B0 /* MovieInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoView.swift; sourceTree = "<group>"; };
+		0700A31E2B8B65D8008925B0 /* BoxOfficeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableView.swift; sourceTree = "<group>"; };
+		0700A3202B8B67E8008925B0 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		0700A3222B8B6B7F008925B0 /* BoxOffcie-SwiftUI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BoxOffcie-SwiftUI-Info.plist"; sourceTree = SOURCE_ROOT; };
 		077E3D492B88D05300ED14FC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		077E3D4B2B89B81600ED14FC /* TableViewSectionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionKind.swift; sourceTree = "<group>"; };
 		077E3D4D2B89B95000ED14FC /* BoxOfficeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoxOfficeViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -196,6 +205,7 @@
 		0700A2DC2B8B1B75008925B0 /* BoxOffcie_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				0700A3222B8B6B7F008925B0 /* BoxOffcie-SwiftUI-Info.plist */,
 				0700A2E12B8B1B77008925B0 /* Assets.xcassets */,
 				0700A2E32B8B1B77008925B0 /* Preview Content */,
 				0700A30D2B8B213A008925B0 /* Application */,
@@ -271,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				0700A3112B8B234D008925B0 /* Errors.swift */,
+				0700A3202B8B67E8008925B0 /* LoadingState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,8 +289,11 @@
 		0700A30F2B8B2166008925B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0700A2DF2B8B1B75008925B0 /* ContentView.swift */,
+				0700A2DF2B8B1B75008925B0 /* BoxOfficeMainView.swift */,
 				0700A3182B8B2701008925B0 /* NetworkUnavailableView.swift */,
+				0700A31E2B8B65D8008925B0 /* BoxOfficeTableView.swift */,
+				0700A31A2B8B59A3008925B0 /* BoxOfficeTableCellView.swift */,
+				0700A31C2B8B5E34008925B0 /* MovieInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -682,22 +696,26 @@
 				0700A3002B8B209E008925B0 /* Nation.swift in Sources */,
 				0700A2F52B8B2091008925B0 /* WeeklyBoxOffice.swift in Sources */,
 				0700A30A2B8B2117008925B0 /* DefaultBoxOfficeRepository.swift in Sources */,
+				0700A3212B8B67E9008925B0 /* LoadingState.swift in Sources */,
 				0700A3142B8B2629008925B0 /* ViewModel.swift in Sources */,
 				0700A3012B8B20BC008925B0 /* MovieInfoResponseDTO.swift in Sources */,
 				0700A2F32B8B1F4A008925B0 /* Extensions.swift in Sources */,
 				0700A3062B8B20F8008925B0 /* BoxOfficeRepository.swift in Sources */,
 				0700A3172B8B266E008925B0 /* NetworkMonitor.swift in Sources */,
 				0700A2FC2B8B209E008925B0 /* Audit.swift in Sources */,
-				0700A2E02B8B1B75008925B0 /* ContentView.swift in Sources */,
+				0700A2E02B8B1B75008925B0 /* BoxOfficeMainView.swift in Sources */,
 				0700A2FA2B8B209E008925B0 /* Genre.swift in Sources */,
 				0700A2F62B8B2093008925B0 /* BoxOfficeResult.swift in Sources */,
 				0700A3082B8B2106008925B0 /* MovieInfoRepository.swift in Sources */,
 				0700A2DE2B8B1B75008925B0 /* BoxOffcie_SwiftUIApp.swift in Sources */,
+				0700A31D2B8B5E34008925B0 /* MovieInfoView.swift in Sources */,
 				0700A2F42B8B208E008925B0 /* BoxOfficeListResponse.swift in Sources */,
+				0700A31F2B8B65D8008925B0 /* BoxOfficeTableView.swift in Sources */,
 				0700A3122B8B234D008925B0 /* Errors.swift in Sources */,
 				0700A30C2B8B2124008925B0 /* DefaultMovieInfoRepository.swift in Sources */,
 				0700A2F92B8B209E008925B0 /* Company.swift in Sources */,
 				0700A2F72B8B2096008925B0 /* MovieInfoResponse.swift in Sources */,
+				0700A31B2B8B59A3008925B0 /* BoxOfficeTableCellView.swift in Sources */,
 				0700A2FF2B8B209E008925B0 /* Director.swift in Sources */,
 				0700A3022B8B20BC008925B0 /* BoxOfficeResponseDTO.swift in Sources */,
 				0700A2F12B8B1F36008925B0 /* Constants.swift in Sources */,
@@ -809,6 +827,7 @@
 				DEVELOPMENT_TEAM = N8PP6SFL29;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BoxOffcie-SwiftUI-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -844,6 +863,7 @@
 				DEVELOPMENT_TEAM = N8PP6SFL29;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BoxOffcie-SwiftUI-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

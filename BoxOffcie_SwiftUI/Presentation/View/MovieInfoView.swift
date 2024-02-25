@@ -8,11 +8,91 @@
 import SwiftUI
 
 struct MovieInfoView: View {
+    @EnvironmentObject private var vm: ViewModel
+    
+    @State private var movieTitle: String = "-"
+    @State private var movieEnglishTitle: String = "-"
+    @State private var runningTime: String = "-"
+    @State private var productionYear: String = "-"
+    @State private var openDate: String = "-"
+    @State private var isLoading: Bool = true
+    
+    let movieCode: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            if isLoading {
+                ProgressView()
+                    .controlSize(.regular)
+                    .zIndex(1)
+            } else {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Text("movieName".localized())
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    Text(movieTitle)
+                        .bold()
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    HStack {
+                        Text("movieEnglishName".localized())
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    Text(movieEnglishTitle)
+                        .bold()
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    HStack {
+                        Text("showTime".localized())
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    Text(runningTime + "minute".localized())
+                        .bold()
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    HStack {
+                        Text("produecedYear".localized())
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    Text(productionYear)
+                        .bold()
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    HStack {
+                        Text("openDate".localized())
+                            .foregroundStyle(.secondary)
+                        Spacer()
+                    }
+                    Text(openDate)
+                        .bold()
+                    Spacer()
+                }
+            }
+        }
+        .task {
+            do {
+                isLoading = true
+                let movieInfo = try await vm.movieInfoRepository.requestMovieInfo(movieCode: movieCode)
+                movieTitle = movieInfo.movieName
+                movieEnglishTitle = movieInfo.movieEnglishName
+                runningTime = movieInfo.showTime
+                productionYear = movieInfo.producedYear
+                openDate = movieInfo.openDate
+                isLoading = false
+            } catch {
+                debugPrint(Errors.failedFetchMovieInfo.localizedDescription)
+                isLoading = false
+            }
+        }
     }
-}
-
-#Preview {
-    MovieInfoView()
 }

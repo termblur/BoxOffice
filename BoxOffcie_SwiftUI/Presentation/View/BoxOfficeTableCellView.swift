@@ -16,14 +16,14 @@ struct BoxOfficeTableCellView: View {
                 HStack {
                     Text("rank".localized())
                         .foregroundStyle(.secondary)
-                        .frame(width: 100)
+                        .frame(width: 100, alignment: .leading)
                     Text(weeklyBoxOffcie.rank)
                     Spacer()
                 }
                 HStack {
                     Text("movieName".localized())
                         .foregroundStyle(.secondary)
-                        .frame(width: 100)
+                        .frame(width: 100, alignment: .leading)
                     Text(weeklyBoxOffcie.movieNm)
                     Spacer()
                 }
@@ -31,18 +31,19 @@ struct BoxOfficeTableCellView: View {
                 HStack {
                     Text("openingDate".localized())
                         .foregroundStyle(.secondary)
-                        .frame(width: 100)
+                        .frame(width: 100, alignment: .leading)
                     Text(weeklyBoxOffcie.openDt)
                     Spacer()
                 }
                 HStack {
                     Text("totalAudience".localized())
                         .foregroundStyle(.secondary)
-                        .frame(width: 100)
+                        .frame(width: 100, alignment: .leading)
                     Text(weeklyBoxOffcie.audiAcc.withCommaAndUnit())
                     Spacer()
                 }
             }
+            .foregroundStyle(.primary)
         }
     }
 }

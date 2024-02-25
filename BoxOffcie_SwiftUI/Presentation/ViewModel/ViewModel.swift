@@ -8,5 +8,13 @@
 import SwiftUI
 
 final class ViewModel: ObservableObject {
+    @Published var weekType: Int = 0
+    @Published var selectedDate: Date = .now
+    @Published var weeklyBoxOfficeList: [WeeklyBoxOffice] = []
+    
+    let boxOfficeRepository: BoxOfficeRepository = DefaultBoxOfficeRepository()
+    let movieInfoRepository: MovieInfoRepository = DefaultMovieInfoRepository()
+    
+    
     
 }

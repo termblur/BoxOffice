@@ -9,7 +9,7 @@ import Foundation
 
 final class DefaultBoxOfficeRepository: BoxOfficeRepository {
     func requestWeeklyBoxOfficeList(targetDate: Date, weekType: Int) async throws -> BoxOfficeListResponse {
-        var urlComponent = URLComponents(string: BoxOffice.movieInfoUrl)
+        var urlComponent = URLComponents(string: BoxOffice.weeklyBoxOfficeListUrl)
         let queryItems = [
             URLQueryItem(name: "key", value: BoxOffice.serviceKey),
             URLQueryItem(name: "targetDt", value: targetDate.toString()),

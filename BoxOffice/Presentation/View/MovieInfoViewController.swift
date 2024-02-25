@@ -23,12 +23,6 @@ final class MovieInfoViewController: UIViewController {
     private lazy var output = viewModel.transform(input: input)
     private let bag = DisposeBag()
     
-//    let movieName: Driver<String>
-//    let movieEnglishName: Driver<String>
-//    let showTime: Driver<String>
-//    let produecedYear: Driver<String>
-//    let openDate: Driver<String>
-    
     private let movieNameDescriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .semibold)
