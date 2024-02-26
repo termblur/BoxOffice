@@ -32,6 +32,7 @@ final class BoxOfficeUITests: XCTestCase {
         
         app.datePickers["datePicker"].tap()
         XCTAssertTrue(app.segmentedControls["segmentedControl"].buttons["주중(월~목)"].exists)
+        XCTAssertTrue(app.datePickers.collectionViews.buttons["2월 2일 금요일"].exists)
         app.datePickers.collectionViews.buttons["2월 2일 금요일"].tap()
         app.buttons["searchButton"].tap()
         delayExpectation.isInverted = true
