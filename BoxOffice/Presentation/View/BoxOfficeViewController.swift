@@ -31,6 +31,7 @@ final class BoxOfficeViewController: UIViewController {
         ]
         let control = UISegmentedControl(items: items)
         control.selectedSegmentIndex = 0
+        control.accessibilityIdentifier = "segmentedControl"
         return control
     }()
     
@@ -48,6 +49,7 @@ final class BoxOfficeViewController: UIViewController {
         picker.preferredDatePickerStyle = .compact
         picker.locale = .current
         picker.showsMenuAsPrimaryAction = true
+        picker.accessibilityIdentifier = "datePicker"
         return picker
     }()
     
@@ -61,6 +63,7 @@ final class BoxOfficeViewController: UIViewController {
         config.imagePlacement = .leading
         config.imagePadding = 3
         button.configuration = config
+        button.accessibilityIdentifier = "searchButton"
         return button
     }()
     
@@ -108,6 +111,7 @@ final class BoxOfficeViewController: UIViewController {
         table.rowHeight = 100
         table.register(TableViewCell.self,
                        forCellReuseIdentifier: TableViewCell.id)
+        table.accessibilityIdentifier = "tableView"
         return table
     }()
     
@@ -301,6 +305,7 @@ final class BoxOfficeViewController: UIViewController {
             cellProvider: { tableView, indexPath, item -> UITableViewCell? in
                 let cell = TableViewCell(style: .default, reuseIdentifier: TableViewCell.id)
                 cell.fill(box: item)
+                cell.accessibilityIdentifier = "cell_\(indexPath.row)"
                 return cell
             })
     }

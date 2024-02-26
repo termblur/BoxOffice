@@ -25,8 +25,18 @@ final class BoxOfficeUITests: XCTestCase {
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
+        let delayExpectation = XCTestExpectation()
+        let table = app.tables.matching(identifier: "tableView")
+        let cell = table.cells.element(matching: .cell, identifier: "cell_0")
         app.launch()
-
+        
+        app.datePickers["datePicker"].tap()
+        XCTAssertTrue(app.segmentedControls["segmentedControl"].buttons["주중(월~목)"].exists)
+        app.datePickers.collectionViews.buttons["2월 2일 금요일"].tap()
+        app.buttons["searchButton"].tap()
+        delayExpectation.isInverted = true
+        wait(for: [delayExpectation], timeout: 2)
+        cell.tap()
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
