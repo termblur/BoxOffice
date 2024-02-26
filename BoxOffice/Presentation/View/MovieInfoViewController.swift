@@ -137,54 +137,59 @@ final class MovieInfoViewController: UIViewController {
     }
     
     private func layout() {
+        let descriptionLabelLeadingSpace: CGFloat = 15
+        let verticalLargeSpace: CGFloat = 40
+        let verticalSmallSpace: CGFloat = 10
+        let labelLeadingSpace: CGFloat = 5
+        
         movieNameDescriptionLabel.snp.makeConstraints {
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
-            $0.bottom.equalTo(movieNameLabel.snp.top).offset(-10)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(descriptionLabelLeadingSpace)
+            $0.bottom.equalTo(movieNameLabel.snp.top).offset(-verticalSmallSpace)
         }
         
         movieNameLabel.snp.makeConstraints {
-            $0.bottom.equalTo(movieEnglishNameDescriptionLabel.snp.top).offset(-40)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.bottom.equalTo(movieEnglishNameDescriptionLabel.snp.top).offset(-verticalLargeSpace)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(labelLeadingSpace)
         }
         
         movieEnglishNameDescriptionLabel.snp.makeConstraints {
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
-            $0.bottom.equalTo(movieEnglishNameLabel.snp.top).offset(-10)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(descriptionLabelLeadingSpace)
+            $0.bottom.equalTo(movieEnglishNameLabel.snp.top).offset(-verticalSmallSpace)
         }
         
         movieEnglishNameLabel.snp.makeConstraints {
-            $0.bottom.equalTo(runningTimeDescriptionLabel.snp.top).offset(-40)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.bottom.equalTo(runningTimeDescriptionLabel.snp.top).offset(-verticalLargeSpace)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(labelLeadingSpace)
         }
         
         runningTimeDescriptionLabel.snp.makeConstraints {
-            $0.bottom.equalTo(runningTimeLabel.snp.top).offset(-10)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
+            $0.bottom.equalTo(runningTimeLabel.snp.top).offset(-verticalSmallSpace)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(descriptionLabelLeadingSpace)
         }
         
         runningTimeLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(labelLeadingSpace)
         }
         
         productionYearDescriptionLabel.snp.makeConstraints {
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
-            $0.top.equalTo(runningTimeLabel.snp.bottom).offset(40)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(descriptionLabelLeadingSpace)
+            $0.top.equalTo(runningTimeLabel.snp.bottom).offset(verticalLargeSpace)
         }
         
         productionYearLabel.snp.makeConstraints {
-            $0.top.equalTo(productionYearDescriptionLabel.snp.bottom).offset(10)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.top.equalTo(productionYearDescriptionLabel.snp.bottom).offset(verticalSmallSpace)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(labelLeadingSpace)
         }
         
         releaseDateDescriptionLabel.snp.makeConstraints {
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(15)
-            $0.top.equalTo(productionYearLabel.snp.bottom).offset(40)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(descriptionLabelLeadingSpace)
+            $0.top.equalTo(productionYearLabel.snp.bottom).offset(verticalLargeSpace)
         }
         
         releaseDateLabel.snp.makeConstraints {
-            $0.top.equalTo(releaseDateDescriptionLabel.snp.bottom).offset(10)
-            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.top.equalTo(releaseDateDescriptionLabel.snp.bottom).offset(verticalSmallSpace)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(labelLeadingSpace)
         }
     }
     

@@ -186,19 +186,24 @@ final class BoxOfficeViewController: UIViewController {
     }
     
     private func layout() {
+        let horizontalSpace: CGFloat = 5
+        let verticalSpace: CGFloat = 10
+        let blockViewWidth: CGFloat = 100
+        let topSpace: CGFloat = 5
+        
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(5)
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(topSpace)
         }
         
         segmentedControl.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(verticalSpace)
         }
         
         dateDescriptionLabel.snp.makeConstraints {
             $0.centerY.equalTo(searchButton.snp.centerY)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(5)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(horizontalSpace)
         }
         
         datePicker.snp.makeConstraints {
@@ -207,35 +212,35 @@ final class BoxOfficeViewController: UIViewController {
         }
         
         searchButton.snp.makeConstraints {
-            $0.top.equalTo(segmentedControl.snp.bottom).offset(10)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(verticalSpace)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(horizontalSpace)
         }
         
         boxOfficeTypeDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(searchButton.snp.bottom).offset(10)
-            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(5)
+            $0.top.equalTo(searchButton.snp.bottom).offset(verticalSpace)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(horizontalSpace)
         }
         
         boxOfficeTypeLabel.snp.makeConstraints {
-            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.top.equalTo(searchButton.snp.bottom).offset(verticalSpace)
             $0.leading.equalTo(boxOfficeTypeDescriptionLabel.snp.trailing)
         }
         
         rangeDescriptionLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         rangeDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.top.equalTo(searchButton.snp.bottom).offset(verticalSpace)
             $0.leading.equalTo(view.snp.centerX)
         }
         
         rangeLabel.snp.makeConstraints {
-            $0.top.equalTo(searchButton.snp.bottom).offset(10)
+            $0.top.equalTo(searchButton.snp.bottom).offset(verticalSpace)
             $0.leading.equalTo(rangeDescriptionLabel.snp.trailing)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(horizontalSpace)
         }
         
         tableView.snp.makeConstraints {
-            $0.top.equalTo(boxOfficeTypeDescriptionLabel.snp.bottom).offset(10)
-            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(5)
+            $0.top.equalTo(boxOfficeTypeDescriptionLabel.snp.bottom).offset(verticalSpace)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(horizontalSpace)
         }
         
         emptyTableDescriptionLabel.snp.makeConstraints {
@@ -248,7 +253,7 @@ final class BoxOfficeViewController: UIViewController {
         
         blockImageView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.height.width.equalTo(100)
+            $0.height.width.equalTo(blockViewWidth)
         }
     }
     

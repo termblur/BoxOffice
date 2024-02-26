@@ -25,3 +25,6 @@
 "produecedYear" = "Production Year";
 "openDate" = "Release Date";
 "minute" = "min";
+"Please Check Network Connection" = "네트워크 연결 상태를 확인해 주세요.";
+"Okay" = "OK";
+"FailAccess" = "Access Fail😢";

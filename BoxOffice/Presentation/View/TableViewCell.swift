@@ -103,49 +103,55 @@ final class TableViewCell: UITableViewCell {
     }
     
     private func layout() {
+        let labelLeadingSpace: CGFloat = 30
+        let labelTrailingSpace: CGFloat = 5
+        let descriptionLabelLeadingSpace: CGFloat = 10
+        let verticalLargeSpace: CGFloat = 10
+        let verticalSmallSpace: CGFloat = 5
+        
         rankDescriptionLabel.snp.makeConstraints {
-            $0.bottom.equalTo(titleDescriptionLabel.snp.top).offset(-10)
-            $0.leading.equalToSuperview().offset(10)
+            $0.bottom.equalTo(titleDescriptionLabel.snp.top).offset(-verticalLargeSpace)
+            $0.leading.equalToSuperview().offset(descriptionLabelLeadingSpace)
         }
         
         titleDescriptionLabel.snp.makeConstraints {
-            $0.bottom.equalTo(contentView.snp.centerY).offset(-5)
-            $0.leading.equalToSuperview().offset(10)
+            $0.bottom.equalTo(contentView.snp.centerY).offset(-verticalSmallSpace)
+            $0.leading.equalToSuperview().offset(descriptionLabelLeadingSpace)
         }
         
         openDateDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(contentView.snp.centerY).offset(5)
-            $0.leading.equalToSuperview().offset(10)
+            $0.top.equalTo(contentView.snp.centerY).offset(verticalSmallSpace)
+            $0.leading.equalToSuperview().offset(descriptionLabelLeadingSpace)
         }
         
         audienceNumberDescriptionLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         audienceNumberDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(openDateDescriptionLabel.snp.bottom).offset(10)
-            $0.leading.equalToSuperview().offset(10)
+            $0.top.equalTo(openDateDescriptionLabel.snp.bottom).offset(verticalLargeSpace)
+            $0.leading.equalToSuperview().offset(descriptionLabelLeadingSpace)
         }
         
         rankLabel.snp.makeConstraints {
             $0.centerY.equalTo(rankDescriptionLabel.snp.centerY)
-            $0.trailing.equalToSuperview().inset(5)
-            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(30)
+            $0.trailing.equalToSuperview().inset(labelTrailingSpace)
+            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(labelLeadingSpace)
         }
         
         titleLabel.snp.makeConstraints {
             $0.centerY.equalTo(titleDescriptionLabel.snp.centerY)
-            $0.trailing.equalToSuperview().inset(5)
-            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(30)
+            $0.trailing.equalToSuperview().inset(labelTrailingSpace)
+            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(labelLeadingSpace)
         }
         
         openDateLabel.snp.makeConstraints {
             $0.centerY.equalTo(openDateDescriptionLabel.snp.centerY)
-            $0.trailing.equalToSuperview().inset(5)
-            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(30)
+            $0.trailing.equalToSuperview().inset(labelTrailingSpace)
+            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(labelLeadingSpace)
         }
         
         audienceNumberLabel.snp.makeConstraints {
             $0.centerY.equalTo(audienceNumberDescriptionLabel.snp.centerY)
-            $0.trailing.equalToSuperview().inset(5)
-            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(30)
+            $0.trailing.equalToSuperview().inset(labelTrailingSpace)
+            $0.leading.equalTo(audienceNumberDescriptionLabel.snp.trailing).offset(labelLeadingSpace)
         }
     }
     

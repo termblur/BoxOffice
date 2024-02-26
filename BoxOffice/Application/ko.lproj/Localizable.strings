@@ -26,3 +26,6 @@
 "produecedYear" = "제작년도";
 "openDate" = "개봉일";
 "minute" = "분";
+"Please Check Network Connection" = "네트워크 연결 상태를 확인해 주세요.";
+"Okay" = "확인";
+"FailAccess" = "서버 접근이 어려워요😢";

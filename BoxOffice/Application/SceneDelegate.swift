@@ -37,10 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         if !NetworkMonitor.shared.isConnected {
             vc.blockView.isHidden = false
-            let alert = UIAlertController(title:"네트워크 접속 불가",
-                                          message: "네트워크 연결 상태를 확인해주세요.",
+            let alert = UIAlertController(title: "FailAccess".localized(),
+                                          message: "Please Check Network Connection".localized(),
                                           preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .cancel))
+            alert.addAction(UIAlertAction(title: "Okay".localized(), style: .cancel))
 
             vc.present(alert, animated: true)
         } else {
