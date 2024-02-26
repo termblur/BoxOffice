@@ -12,9 +12,11 @@ final class ViewModel: ObservableObject {
     @Published var selectedDate: Date = .now
     @Published var weeklyBoxOfficeList: [WeeklyBoxOffice] = []
     
-    let boxOfficeRepository: BoxOfficeRepository = DefaultBoxOfficeRepository()
-    let movieInfoRepository: MovieInfoRepository = DefaultMovieInfoRepository()
+    let boxOfficeRepository: BoxOfficeRepository
+    let movieInfoRepository: MovieInfoRepository
     
-    
-    
+    init(boxOfficeRepository: BoxOfficeRepository, movieInfoRepository: MovieInfoRepository) {
+        self.boxOfficeRepository = boxOfficeRepository
+        self.movieInfoRepository = movieInfoRepository
+    }
 }

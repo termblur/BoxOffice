@@ -10,7 +10,8 @@ import SwiftUI
 @main
 struct BoxOffcie_SwiftUIApp: App {
     @Environment(\.scenePhase) var scenePhase
-    @StateObject private var vm = ViewModel()
+    @StateObject private var vm = ViewModel(boxOfficeRepository: DefaultBoxOfficeRepository(),
+                                            movieInfoRepository: DefaultMovieInfoRepository())
     @StateObject private var networkMonitor = NetworkMonitor()
     @State private var isConnectNetwork: Bool = true
     
